@@ -27,8 +27,10 @@ def seidel(A, b, eps, x = None):
     while True:
         x_old = x.copy()
         for i in range(n):
-            sigma = np.dot(A[i, :i], x[:i]) + np.dot(A[i, i+1:], x_old[i+1:])
+            sigma = sum(A[i][j] * x[j] for j in range(i))
+            sigma += sum(A[i][j] * x_old[j] for j in range(i + 1, n))
             x[i] = (b[i] - sigma) / A[i, i]
+
 
         if norm(x - x_old) < eps:
             break

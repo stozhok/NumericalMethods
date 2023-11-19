@@ -9,7 +9,7 @@ import seidel
 eps = 0.0001
 
 A = gen.random_diagonally_dominant_matrix(3)
-#b = np.array([5, 2, 0])
+#b = np.array([15, 22, 3])
 b = np.random.rand(3)
 print("Gauss method Solution for the system:")
 result1 = gauss.gauss(A, b)
